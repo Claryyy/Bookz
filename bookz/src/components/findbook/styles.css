@@ -1,3 +1,20 @@
+.input-field {
+  color: black;
+  font-family: inherit;
+  font-size: 1.2em;
+  height: 20vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  max-width: 70%;
+  align-self: center;
+}
+
 .btn {
   position: absolute;
   width: 116px;
