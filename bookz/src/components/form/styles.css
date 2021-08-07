@@ -1,0 +1,56 @@
+.title {
+  /* N u t r o */
+
+  position: absolute;
+  width: 209px;
+  height: 42px;
+  left: 68px;
+  top: 96px;
+
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 55px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #ffffff;
+
+  transform: rotate(0.17deg);
+}
+
+.sub-text {
+  /* Text */
+  position: absolute;
+  left: 7.12%;
+  right: 12.75%;
+  top: -7.33%;
+  bottom: 60.36%;
+  font-family: Nunito Sans;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 10.617px;
+  line-height: 112%;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  letter-spacing: -0.787234px;
+  color: #ffffff;
+}
+
+.btn {
+  position: absolute;
+  width: 116px;
+  height: 33px;
+  left: 102px;
+  top: 482px;
+}
+
+.input-field {
+  color: black;
+  font-size: 2em;
+  height: 20vh;
+}
