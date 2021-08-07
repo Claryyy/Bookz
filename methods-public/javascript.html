@@ -54,7 +54,7 @@
           const books = data.data.map((book) => {
             return `<h5>${book.title}</h5>`;
           });
-          result.innerHTML = book.join("");
+          result.innerHTML = books.join("");
         } catch (error) {
           result.innerHTML = `<div class="alert alert-danger">Can't Fetch Data</div>`;
         }
@@ -69,7 +69,7 @@
         const nameValue = input.value;
 
         try {
-          const { data } = await axios.post("/api/books/getAllBooks", {
+          const { data } = await axios.post("/api/books/", {
             title: nameValue,
           });
           const h5 = document.createElement("h5");
