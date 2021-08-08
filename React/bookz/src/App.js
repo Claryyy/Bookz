@@ -1,4 +1,7 @@
 import React from "react";
+import bootstrap from "bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Bookshelf from "./components/bookshelf";
@@ -34,6 +37,8 @@ function App() {
             <Button label="Edit bookshelf"></Button>
           </Link>
         </div>
+
+        <Bookshelf />
 
         <Switch>
           <Route path="/get_all_books" component={Bookshelf}></Route>

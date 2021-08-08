@@ -13,9 +13,14 @@ function BookDetailsForm() {
   const [rating, setRating] = useState(0);
   const [yearRead, setYearRead] = useState(0);
 
-  //   useEffect(() => {
-  //     createBook();
-  //   });
+  useEffect(() => {
+    fetch("http://localhost:5000/api/books")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ contacts: data });
+      })
+      .catch(console.log);
+  });
 
   //   const handleSubmit = (e) => {
   //     e.preventDefault();
