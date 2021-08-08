@@ -9,7 +9,7 @@ You can track the books you have read so far and add new ones to your shelf! You
 
 This project has been built using [Node.js](https://nodejs.org/en/about/) and the [Express](https://expressjs.com/) framework.  
   
-![express setup](https://imgur.com/lCQ1aB1)  
+![express setup](https://imgur.com/lCQ1aB1.png)  
   
 You can find it here in the project: [API/app.js](API/app.js)  
 The API calls were tested with Postman to make sure the paths were correct to access the database.  
@@ -19,7 +19,7 @@ The API calls were tested with Postman to make sure the paths were correct to ac
 The database is managed using MongoDB. I've used the Studio 3T app to setup and create the database.  
   
 ![mongodb setup](https://imgur.com/TP0lf0a.png)    
-![studio 3t](https://imgur.com/ISr75Y4.jpeg)  
+![studio 3t](https://imgur.com/ISr75Y4.png)  
   
 You can find it here in the project: [API/controller.js](API/controller.js)  
   
@@ -29,7 +29,7 @@ To help with the formatting on the frontend, I have decided to use Bootstrap.
 This was particularly helpful with formatting the table with all the books on the bookshelf so far and made it more readable quickly.  
 It felt like magic!  
     
-![bookshelf](https://imgur.com/6FPNnNu)  
+![bookshelf](https://imgur.com/6FPNnNu.png)  
   
 Importing bootstrap: [React/bookz/src/App.js](React/bookz/src/App.js)  
 The buttons have been formatted using bootstrap: [React/bookz/src/components/button/index.js](React/bookz/src/components/button/index.js)  
@@ -44,5 +44,5 @@ CORS: Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism tha
   
 ## Diagram that shows how the technology works  
   
-![diagram](https://imgur.com/jnZ1HF1)  
+![diagram](https://imgur.com/jnZ1HF1.png)  
 [Source](https://www.mongodb.com/blog/post/the-modern-application-stack-part-5-using-reactjs-es6-and-jsx-to-build-a-ui-the-rise-of-mern)  
