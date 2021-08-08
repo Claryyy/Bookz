@@ -18,8 +18,8 @@ The API calls were tested with Postman to make sure the paths were correct to ac
   
 The database is managed using MongoDB. I've used the Studio 3T app to setup and create the database.  
   
-![mongodb setup](https://imgur.com/TP0lf0a)    
-![studio 3t](https://imgur.com/ISr75Y4)  
+![mongodb setup](https://imgur.com/TP0lf0a.png)    
+![studio 3t](https://imgur.com/ISr75Y4.jpeg)  
   
 You can find it here in the project: [API/controller.js](API/controller.js)  
   
