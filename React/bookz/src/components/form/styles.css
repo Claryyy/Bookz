@@ -1,0 +1,34 @@
+.title {
+  font-family: inherit;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.sub-text {
+  font-family: inherit;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  max-width: 70%;
+  align-self: center;
+}
+
+.input-field {
+  color: black;
+  font-family: inherit;
+  font-size: 1.2em;
+  height: 20vh;
+}

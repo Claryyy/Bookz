@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const cors = require("cors");
 const books = require("./books");
 
 // static assets
@@ -9,6 +9,8 @@ app.use(express.static("./methods-public"));
 app.use(express.urlencoded({ extended: false }));
 // parse json
 app.use(express.json());
+
+app.use(cors());
 
 app.use("/api/books", books);
 
