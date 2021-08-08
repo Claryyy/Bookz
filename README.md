@@ -11,7 +11,7 @@ This project has been built using [Node.js](https://nodejs.org/en/about/) and th
 
 ![express setup](https://imgur.com/lCQ1aB1)
 
-You can find it here in the project: <API/app.js>
+You can find it here in the project: [API/app.js]
 The API calls were tested with Postman to make sure the paths were correct to access the database.
 
 ### MongoDB
@@ -21,7 +21,7 @@ The database is managed using MongoDB. I've used the Studio 3T app to setup and 
 ![mongodb setup](https://imgur.com/TP0lf0a)
 ![studio 3t](https://imgur.com/ISr75Y4)
 
-You can find it here in the project: <API/controller.js>
+You can find it here in the project: [API/controller.js]
 
 ### Bootstrap
 
@@ -31,9 +31,9 @@ It felt like magic!
 
 ![bookshelf](https://imgur.com/6FPNnNu)
 
-Importing bootstrap: <React/bookz/src/App.js>
-The buttons have been formatted using bootstrap: <React/bookz/src/components/button/index.js>
-The table formatted using bootstrap: <React/bookz/src/components/bookshelf/index.js>
+Importing bootstrap: [React/bookz/src/App.js]
+The buttons have been formatted using bootstrap: [React/bookz/src/components/button/index.js]
+The table formatted using bootstrap: [React/bookz/src/components/bookshelf/index.js]
 
 #### Other
 Nodemon: for the building environment. Automatic rerender of the backend app whenever a change was made.
