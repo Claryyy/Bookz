@@ -12,9 +12,9 @@ function Bookshelf() {
         Find all the books you have read and added to your bookshelf so far{" "}
       </h3>
       <table></table>
-      <Link to="/get_all_books">
+      {/* <Link to="/get_all_books">
         <Button label="Submit" className="btn" />
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -12,24 +12,28 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">Bookz</header>
-        <h1>Welcome to Bookz</h1>
-        <h3>The app where your books won't sleep on the self</h3>
-        <h4>
-          Track the books you have read so far and add new ones to your shelf!
-        </h4>
-        <Link to="/get_all_books">
-          <Button label="View entire bookshelf"></Button>
-        </Link>
-        <Link to="/get_book">
-          <Button label="Find a book"></Button>
-        </Link>
-        <Link to="/add_new_book">
-          <Button label="Add new book"></Button>
-        </Link>
-        <Link to="/edit_book">
-          <Button label="Edit bookshelf"></Button>
-        </Link>
+        <header className="App-header">
+          <h1>Bookz</h1>
+          <h4>The app where your books won't sleep on the shelf</h4>
+          <p>
+            Track the books you have read so far and add new ones to your shelf!
+          </p>
+        </header>
+
+        <div className="button-container">
+          <Link to="/get_all_books">
+            <Button label="View entire bookshelf"></Button>
+          </Link>
+          <Link to="/get_book">
+            <Button label="Find a book"></Button>
+          </Link>
+          <Link to="/add_new_book">
+            <Button label="Add new book"></Button>
+          </Link>
+          <Link to="/edit_book">
+            <Button label="Edit bookshelf"></Button>
+          </Link>
+        </div>
 
         <Switch>
           <Route path="/get_all_books" component={Bookshelf}></Route>
