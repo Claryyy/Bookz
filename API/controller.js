@@ -45,7 +45,7 @@ const getBook = async (req, res) => {
       .json({ success: false, msg: `no book with id ${id}` });
   }
 
-  res.status(200).json({ book });
+  res.status(200).json(book);
 };
 
 const createBook = async (req, res) => {
@@ -78,7 +78,7 @@ const createBook = async (req, res) => {
       .json({ success: false, msg: "Insert failed for some reason" });
   }
 
-  res.status(201).send({ book });
+  res.status(201).send(book);
 };
 
 const updateBook = async (req, res) => {
@@ -103,7 +103,7 @@ const updateBook = async (req, res) => {
   closeConnectionToDatabase();
 
   if (updateResult.modifiedCount === 1) {
-    res.status(200).json({ book });
+    res.status(200).json(book);
   } else {
     return res
       .status(400)
