@@ -1,13 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useRouteMatch, useParams } from "react-router-dom";
 import "./styles.css";
 import Button from "../button";
 
-function EditBook(props) {
+function EditBook() {
   const [book, setBook] = useState({});
+  let { bookId } = useParams();
 
   async function updateBook() {
-    fetch(`http://localhost:5000/api/books/${props.id}`, {
+    fetch(`http://localhost:5000/api/books/${bookId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +26,8 @@ function EditBook(props) {
 
   useEffect(() => {
     let mounted = true;
-    fetch(`http://localhost:5000/api/books/${props.id}`)
+
+    fetch(`http://localhost:5000/api/books/${bookId}`)
       .then((res) => res.json())
       .then((data) => {
         if (mounted) {
@@ -33,7 +36,7 @@ function EditBook(props) {
       })
       .catch(console.log);
     return () => (mounted = false);
-  });
+  }, [bookId]);
 
   return (
     <div className="edit-book">

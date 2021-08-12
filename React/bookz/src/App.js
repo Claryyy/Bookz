@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Bookshelf from "./components/bookshelf";
 import BookDetailsForm from "./components/form";
-import AppendBook from "./components/append";
+import EditBook from "./components/edit";
 import FindSpecificBook from "./components/findbook";
 import Button from "./components/button";
 import "./App.css";
@@ -24,7 +24,7 @@ function App() {
         </header>
 
         <div className="button-container">
-          <Link to="/get_all_books">
+          <Link to="/">
             <Button label="View entire bookshelf"></Button>
           </Link>
           <Link to="/get_book">
@@ -33,19 +33,16 @@ function App() {
           <Link to="/add_new_book">
             <Button label="Add new book"></Button>
           </Link>
-          <Link to="/edit_book">
+          {/* <Link to="/edit_book">
             <Button label="Edit bookshelf"></Button>
-          </Link>
+          </Link> */}
         </div>
 
-        <Bookshelf />
-
         <Switch>
-          <Route path="/get_all_books" component={Bookshelf}></Route>
+          <Route exact path="/" component={Bookshelf}></Route>
           <Route path="/get_book" component={FindSpecificBook}></Route>
           <Route path="/add_new_book" component={BookDetailsForm}></Route>
-          <Route path="/edit_book" component={AppendBook}></Route>
-          <Route path="/" exact></Route>
+          <Route path="/edit_book/:bookId" component={EditBook}></Route>
         </Switch>
       </div>
     </Router>
