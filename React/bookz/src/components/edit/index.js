@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useRouteMatch, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./styles.css";
-import Button from "../button";
 
 function EditBook() {
   const [title, setTitle] = useState("");
@@ -126,7 +125,6 @@ function EditBook() {
           value={yearRead}
           onChange={(e) => setYearRead(e.target.value)}
         ></input>
-        {/* <Button label="Submit" className="btn" onClick={(e) => updateBook()} /> */}
         <button className="btn btn-primary" onClick={updateBook}>
           Submit
         </button>
