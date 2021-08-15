@@ -5,10 +5,26 @@ import "./styles.css";
 import Button from "../button";
 
 function EditBook() {
-  const [book, setBook] = useState({});
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [genre, setGenre] = useState("");
+  const [yearPublished, setYearPublished] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [yearRead, setYearRead] = useState(0);
   let { bookId } = useParams();
 
   async function updateBook() {
+    console.log("This is the updateBook function happening");
+
+    let book = {
+      title: title,
+      author: author,
+      genre: genre,
+      yearPublished: yearPublished,
+      rating: rating,
+      yearRead: yearRead,
+    };
+
     fetch(`http://localhost:5000/api/books/${bookId}`, {
       method: "PUT",
       headers: {
@@ -31,7 +47,12 @@ function EditBook() {
       .then((res) => res.json())
       .then((data) => {
         if (mounted) {
-          setBook(data);
+          setTitle(data.title);
+          setAuthor(data.author);
+          setGenre(data.genre);
+          setYearPublished(data.yearPublished);
+          setRating(data.rating);
+          setYearRead(data.yearRead);
         }
       })
       .catch(console.log);
@@ -45,25 +66,25 @@ function EditBook() {
         Please edit the book's info in the form below
       </h3>
       <form className="input-field container">
-        <label for="title">Title:</label>
+        <label>Title:</label>
         <input
           type="text"
           variant="filled"
           id="title"
           required
           placeholder="Enter the updated book's title here"
-          value={book.title}
-          onChange={(e) => (book.title = e.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         ></input>
-        <label for="author">Author:</label>
+        <label>Author:</label>
         <input
           type="text"
           variant="filled"
           id="author"
           required
           placeholder="Enter the updated book's author here"
-          value={book.author}
-          onChange={(e) => (book.author = e.value)}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
         ></input>
         <label for="genre">Genre:</label>
         <input
@@ -72,8 +93,8 @@ function EditBook() {
           id="genre"
           required
           placeholder="Enter the updated book's genre here"
-          value={book.genre}
-          onChange={(e) => (book.genre = e.value)}
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
         ></input>
         <label for="published">Year published:</label>
         <input
@@ -82,8 +103,8 @@ function EditBook() {
           id="published"
           required
           placeholder="Enter the updated book's year of publication here"
-          value={book.yearPublished}
-          onChange={(e) => (book.yearPublished = e.value)}
+          value={yearPublished}
+          onChange={(e) => setYearPublished(e.target.value)}
         ></input>
         <label for="rating">Rating (out of 5):</label>
         <input
@@ -92,8 +113,8 @@ function EditBook() {
           id="rating"
           required
           placeholder="Enter the updated book's rating here"
-          value={book.rating}
-          onChange={(e) => (book.rating = e.value)}
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
         ></input>
         <label for="read">Year read:</label>
         <input
@@ -102,10 +123,13 @@ function EditBook() {
           id="read"
           required
           placeholder="Enter the updated book's year of reading here"
-          value={book.yearRead}
-          onChange={(e) => (book.yearRead = e.value)}
+          value={yearRead}
+          onChange={(e) => setYearRead(e.target.value)}
         ></input>
-        <Button label="Submit" className="btn" onClick={updateBook} />
+        {/* <Button label="Submit" className="btn" onClick={(e) => updateBook()} /> */}
+        <button className="btn btn-primary" onClick={updateBook}>
+          Submit
+        </button>
       </form>
     </div>
   );

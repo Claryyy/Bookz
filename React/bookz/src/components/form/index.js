@@ -1,9 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./styles.css";
-import Button from "../button";
-// import { createBook } from "../../../../controller";
 
 function BookDetailsForm() {
   const [title, setTitle] = useState("");
@@ -13,21 +10,30 @@ function BookDetailsForm() {
   const [rating, setRating] = useState(0);
   const [yearRead, setYearRead] = useState(0);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/books")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ contacts: data });
+  async function createBook() {
+    let book = {
+      title: title,
+      author: author,
+      genre: genre,
+      yearPublished: yearPublished,
+      rating: rating,
+      yearRead: yearRead,
+    };
+
+    fetch(`http://localhost:5000/api/books/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(book),
+    })
+      .then((res) => {
+        if (res.status !== 200) {
+          alert("There was a problem creating the book, please try again");
+        }
       })
       .catch(console.log);
-  });
-
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     createBook();
-  //   };
-
-  // form onSubmit={handleSubmit}
+  }
 
   return (
     <div className="body">
@@ -88,9 +94,9 @@ function BookDetailsForm() {
           value={yearRead}
           onChange={(e) => setYearRead(e.target.value)}
         ></input>
-        <Link to="/get_all_books">
-          <Button label="Submit" className="btn" />
-        </Link>
+        <button className="btn btn-primary" onClick={createBook}>
+          Submit
+        </button>
       </form>
     </div>
   );
