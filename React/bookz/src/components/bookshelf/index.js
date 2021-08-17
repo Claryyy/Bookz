@@ -1,25 +1,37 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 import "./styles.css";
-import Button from "../button";
-import EditBook from "../edit";
 
 function Bookshelf() {
-  let match = useRouteMatch();
+  const [currentBookId, setCurrentBookId] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [books, setBooks] = useState([]);
 
-  useEffect(() => {
-    let mounted = true;
-    fetch("http://localhost:5000/api/books/getAllBooks")
+  async function getAllBooks() {
+    await fetch("http://localhost:5000/api/books/getAllBooks")
       .then((res) => res.json())
       .then((data) => {
-        if (mounted) {
-          setBooks(data);
-        }
+        setBooks(data);
       })
       .catch(console.log);
-    return () => (mounted = false);
+  }
+
+  async function deleteBook(bookId) {
+    setShow(false);
+    await fetch(`http://localhost:5000/api/books/${bookId}`, {
+      method: "DELETE",
+    });
+    await getAllBooks();
+  }
+
+  useEffect(() => {
+    getAllBooks();
+    return () => ({});
   }, []);
 
   return (
@@ -38,6 +50,7 @@ function Bookshelf() {
             <th>Rating</th>
             <th>Year Read</th>
             <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -50,22 +63,45 @@ function Bookshelf() {
               <td>{book.rating}</td>
               <td>{book.yearRead}</td>
               <td>
-                <Link to={`/edit_book/${book._id}`}>Edit</Link>
-
-                {/* <button
-                  className="btn btn-primary"
-                  onClick={() => <EditBook id={book._id} />}
-                >
+                <Link to={`/edit_book/${book._id}`} className="btn btn-primary">
                   Edit
-                </button> */}
+                </Link>
+              </td>
+              <td>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    setCurrentBookId(book._id);
+                    handleShow();
+                  }}
+                >
+                  Delete
+                </Button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      {/* <Link to="/get_all_books">
-        <Button label="Submit" className="btn" />
-      </Link> */}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title> Delete this book?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body> Are you sure you want to delete this book?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              deleteBook(currentBookId);
+            }}
+          >
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

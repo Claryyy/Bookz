@@ -16,13 +16,6 @@ function FindSpecificBook() {
   //     createBook();
   //   });
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     createBook();
-  //   };
-
-  // form onSubmit={handleSubmit}
-
   return (
     <div className="body">
       <h1 className="title">Book's info</h1>

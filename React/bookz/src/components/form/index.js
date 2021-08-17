@@ -10,7 +10,7 @@ function BookDetailsForm() {
   const [rating, setRating] = useState(0);
   const [yearRead, setYearRead] = useState(0);
 
-  async function createBook() {
+  async function createBook(props) {
     let book = {
       title: title,
       author: author,
@@ -20,7 +20,7 @@ function BookDetailsForm() {
       yearRead: yearRead,
     };
 
-    fetch(`http://localhost:5000/api/books/`, {
+    await fetch(`http://localhost:5000/api/books/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,6 +31,9 @@ function BookDetailsForm() {
         if (res.status !== 200) {
           alert("There was a problem creating the book, please try again");
         }
+        console.log("props is: " + props);
+        // TO DO this redirect isn't working
+        props.history.push("/get_book");
       })
       .catch(console.log);
   }

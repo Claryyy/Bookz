@@ -1,6 +1,8 @@
 import React from "react";
-import bootstrap from "bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+// import { Modal } from "react-bootstrap";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -33,9 +35,6 @@ function App() {
           <Link to="/add_new_book">
             <Button label="Add new book"></Button>
           </Link>
-          {/* <Link to="/edit_book">
-            <Button label="Edit bookshelf"></Button>
-          </Link> */}
         </div>
 
         <Switch>
